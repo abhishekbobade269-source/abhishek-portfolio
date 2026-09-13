@@ -50,36 +50,90 @@ export const experience: Experience[] = [
   },
 ];
 
+export type ProjectStatus = "In Development" | "Academic Exercise" | "Live";
+
 export type Project = {
   name: string;
-  description: string;
   tag: string;
+  status: ProjectStatus;
+  stack: string[];
+  description: string;
+  links?: { repo?: string; demo?: string };
 };
 
+// These four started as college coursework and are being rebuilt, one at a
+// time, into fully engineered reference projects — real auth/RBAC, tests,
+// CI, Docker, docs. Status is kept honest: nothing here is oversold as
+// finished before it is. Links appear only once something is actually
+// public (repo pushed / demo deployed).
 export const projects: Project[] = [
   {
-    name: "AI-Assisted Surveillance Drone",
-    tag: "Academic Project",
+    name: "Inventory & Asset Management System",
+    tag: "Independent Project",
+    status: "In Development",
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind"],
     description:
-      "Built an autonomous drone prototype combining computer-vision object detection with real-time decision logic, exploring how aerial automation could support traffic monitoring and disaster-response scenarios.",
+      "A standalone inventory/asset-tracking system — ledgered stock movements, low-stock alerts, supplier records, and role-based access — modeled on the real operations tooling I build day-to-day at Upstep Academy.",
+  },
+  {
+    name: "DroneOps AI — Surveillance Drone Platform",
+    tag: "Independent Project",
+    status: "In Development",
+    stack: ["Next.js", "TypeScript", "MAVLink", "WebSocket"],
+    description:
+      "Started as a college autonomous-drone prototype (computer-vision object detection + real-time decision logic for traffic monitoring and disaster response); being rebuilt as a fleet command-and-telemetry platform with a built-in flight simulator and a real MAVLink adapter behind one connectivity abstraction.",
   },
   {
     name: "Network Intrusion Detection System (IDS)",
-    tag: "Academic Project",
+    tag: "Independent Project",
+    status: "In Development",
+    stack: ["Python", "Packet Capture", "Detection Rules", "ML"],
     description:
-      "Implemented an IDS to monitor live network traffic, flag anomalous patterns, and alert on unauthorized access attempts.",
+      "Started as coursework on monitoring live network traffic for anomalies; being rebuilt as a modular NIDS with a rules engine, an ML-based anomaly detector, and an alerting API/dashboard bridge.",
   },
   {
-    name: "WiFi Security Testing (Deauthentication)",
-    tag: "Academic Project",
+    name: "WiFi Security Lab (802.11 Deauthentication)",
+    tag: "Independent Project",
+    status: "In Development",
+    stack: ["Python", "Scapy", "pytest"],
     description:
-      "Studied 802.11 deauthentication attacks in a controlled lab environment to understand wireless-network vulnerabilities, as coursework on network security.",
+      "A hard-gated 802.11 deauthentication tool and its defensive counterpart (flood detector), built for a controlled lab environment only — every attack path runs through an explicit, expiring authorization allow-list plus an interactive confirmation step. Furthest along of these rebuilds: safety design, tests, docs, and CI are already in place.",
   },
   {
     name: "Android Penetration Testing (Ethical)",
     tag: "Academic Project",
+    status: "Academic Exercise",
+    stack: ["Kali Linux", "Android"],
     description:
       "Practiced ethical Android penetration testing using Kali Linux — identifying vulnerabilities and documenting recommended fixes as part of a security-fundamentals course.",
+  },
+];
+
+export type ClientProject = {
+  name: string;
+  role: string;
+  status: ProjectStatus;
+  stack: string[];
+  description: string;
+  highlights: string[];
+  links?: { repo?: string; demo?: string };
+};
+
+export const clientWork: ClientProject[] = [
+  {
+    name: "The Bling Haven",
+    role: "Freelance Full-Stack Developer",
+    status: "Live",
+    stack: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "Vercel", "Render"],
+    description:
+      "An enterprise-style jewelry e-commerce platform I built and maintain as a freelance engagement: a public storefront, an internal admin portal, and a backing API, deployed and running in production.",
+    highlights: [
+      "Storefront + CMS-managed content: navigation, hero banners, promotions, category pages",
+      "Admin portal with RBAC-filtered navigation, real Prisma-backed analytics dashboard, and audit-relevant activity across catalog, orders, and customers",
+      "Session-based auth via an HttpOnly-cookie BFF proxy, plus 2FA support",
+      "Error monitoring (Sentry) across the API and admin app, keep-alive health checks for uptime",
+    ],
+    links: { demo: "https://theblinghaven-web.vercel.app" },
   },
 ];
 

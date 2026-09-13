@@ -6,7 +6,7 @@ export function Education() {
     <section id="education" className="mx-auto max-w-5xl px-6 py-24">
       <Reveal>
         <span className="font-mono text-sm text-emerald-600 dark:text-emerald-400">
-          05 — Education
+          06 — Education
         </span>
       </Reveal>
 

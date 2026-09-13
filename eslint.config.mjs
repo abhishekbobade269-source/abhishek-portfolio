@@ -12,6 +12,15 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Sibling project folders: independent projects with their own tooling
+    // (and, for Wifi deauthentication, a Python .venv) — not part of this
+    // site's codebase, so this config should never lint into them.
+    "Ai Automation Drone/**",
+    "IDS(Intrusion Detection system)/**",
+    "Wifi deauthentication/**",
+    "Inventory Management System/**",
+    // Standalone Node CLI script (CommonJS, not part of the app bundle).
+    "scripts/**",
   ]),
 ]);
 

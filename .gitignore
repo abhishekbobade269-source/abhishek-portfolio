@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
+# dependencies (repo-wide: sibling projects each have their own node_modules)
+**/node_modules
 /.pnp
 .pnp.*
 .yarn/*
@@ -11,14 +11,14 @@
 !.yarn/versions
 
 # testing
-/coverage
+**/coverage
 
-# next.js
-/.next/
-/out/
+# next.js (repo-wide: multiple Next.js apps live in this monorepo)
+**/.next/
+**/out/
 
 # production
-/build
+**/build
 
 # misc
 .DS_Store
@@ -40,9 +40,21 @@ yarn-error.log*
 # MCP server config references env vars, not secrets, but keep it local anyway
 .mcp.json
 
-# Claude Code local (machine-specific) settings
-.claude/settings.local.json
+# Claude Code local (machine-specific) settings — every project folder has one
+**/.claude/settings.local.json
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Sibling project folders (Ai Automation Drone, IDS, Wifi deauthentication,
+# Inventory Management System, ...): this is a monorepo — each lives in this
+# same repo with its own path-scoped CI (see .github/workflows/), so their
+# source is tracked here too. Only their per-language build/dependency
+# artifacts are ignored, wherever in the tree they show up.
+**/.venv/
+**/__pycache__/
+**/*.pyc
+**/.pytest_cache/
+**/.ruff_cache/
+**/.mypy_cache/

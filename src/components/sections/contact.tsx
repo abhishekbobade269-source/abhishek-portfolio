@@ -15,7 +15,7 @@ export function Contact() {
     <section id="contact" className="mx-auto max-w-5xl px-6 py-24">
       <Reveal>
         <span className="font-mono text-sm text-emerald-600 dark:text-emerald-400">
-          06 — Contact
+          07 — Contact
         </span>
         <h2 className="mt-4 max-w-xl text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl dark:text-white">
           Let&apos;s talk about operations, automation, or your next hire.
