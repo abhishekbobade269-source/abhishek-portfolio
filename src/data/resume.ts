@@ -99,13 +99,14 @@ export const projects: Project[] = [
   {
     name: "WiFi Security Lab (802.11 Deauthentication)",
     tag: "Independent Project",
-    status: "In Development",
+    status: "Live",
     stack: ["Python", "Scapy", "pytest", "Next.js"],
     description:
       "A hard-gated 802.11 deauthentication tool and its defensive counterpart (flood detector), built for a controlled lab environment only — every attack path runs through an explicit, expiring authorization allow-list plus an interactive confirmation step. Furthest along of these rebuilds: safety design, tests, docs, and CI are already in place, plus a hardware-free interactive demo (the real detection algorithm ported to the browser) for anyone without lab equipment.",
     links: {
       repo: "https://github.com/abhishekbobade269-source/wifi-deauth-lab",
       demo: "https://web-topaz-one-55.vercel.app",
+      caseStudy: "/work/wifi",
     },
   },
   {
