@@ -47,14 +47,18 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Sibling project folders (Ai Automation Drone, IDS, Wifi deauthentication,
-# Inventory Management System, ...): this is a monorepo — each lives in this
-# same repo with its own path-scoped CI (see .github/workflows/), so their
-# source is tracked here too. Only their per-language build/dependency
-# artifacts are ignored, wherever in the tree they show up.
+# Generic per-language build artifacts, wherever they show up.
 **/.venv/
 **/__pycache__/
 **/*.pyc
 **/.pytest_cache/
 **/.ruff_cache/
 **/.mypy_cache/
+
+# Sibling project folders: confirmed (2025-09-13) each is its own independent
+# project with its own git repo and deploy target — not part of this site's
+# codebase, so excluded wholesale rather than tracked here.
+/Ai Automation Drone/
+/IDS(Intrusion Detection system)/
+/Wifi deauthentication/
+/Inventory Management System/
