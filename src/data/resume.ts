@@ -74,6 +74,10 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind"],
     description:
       "A standalone inventory/asset-tracking system — ledgered stock movements, low-stock alerts, supplier records, and role-based access — modeled on the real operations tooling I build day-to-day at Upstep Academy.",
+    links: {
+      repo: "https://github.com/abhishekbobade269-source/office-inventory-management-system",
+      caseStudy: "/work/inventory",
+    },
   },
   {
     name: "DroneOps AI — Surveillance Drone Platform",
