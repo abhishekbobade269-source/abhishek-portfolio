@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Sparkles } from "lucide-react";
+import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { projects, type ProjectStatus } from "@/data/resume";
 import { GithubIcon } from "@/components/icons/brand-icons";
@@ -61,8 +62,17 @@ export function Projects() {
                   </span>
                 ))}
               </div>
-              {project.links && (project.links.repo || project.links.demo) && (
-                <div className="mt-4 flex gap-3 text-sm">
+              {project.links &&
+                (project.links.repo || project.links.demo || project.links.caseStudy) && (
+                <div className="mt-4 flex flex-wrap gap-3 text-sm">
+                  {project.links.caseStudy && (
+                    <Link
+                      href={project.links.caseStudy}
+                      className="inline-flex items-center gap-1.5 text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
+                    >
+                      <Sparkles size={14} /> Case Study
+                    </Link>
+                  )}
                   {project.links.repo && (
                     <a
                       href={project.links.repo}

@@ -58,7 +58,7 @@ export type Project = {
   status: ProjectStatus;
   stack: string[];
   description: string;
-  links?: { repo?: string; demo?: string };
+  links?: { repo?: string; demo?: string; caseStudy?: string };
 };
 
 // These four started as college coursework and are being rebuilt, one at a
@@ -92,6 +92,7 @@ export const projects: Project[] = [
       "Started as coursework on monitoring live network traffic for anomalies; being rebuilt as a modular NIDS with a rules engine, an ML-based anomaly detector, and an alerting API/dashboard bridge.",
     links: {
       repo: "https://github.com/abhishekbobade269-source/network-intrusion-detection-system",
+      caseStudy: "/work/nids",
     },
   },
   {
