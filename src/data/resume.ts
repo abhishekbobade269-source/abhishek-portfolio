@@ -82,6 +82,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "MAVLink", "WebSocket"],
     description:
       "Started as a college autonomous-drone prototype (computer-vision object detection + real-time decision logic for traffic monitoring and disaster response); being rebuilt as a fleet command-and-telemetry platform with a built-in flight simulator and a real MAVLink adapter behind one connectivity abstraction.",
+    links: { caseStudy: "/work/drone" },
   },
   {
     name: "Network Intrusion Detection System (IDS)",
