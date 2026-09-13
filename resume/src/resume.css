@@ -1,0 +1,135 @@
+/* Single-column, ATS-friendly resume stylesheet. Real selectable text,
+   no images/icons-as-glyphs, no multi-column layout, print-tuned. */
+
+@page {
+  size: A4;
+  margin: 8mm 15mm;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #1a1a1a;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 9.1pt;
+  line-height: 1.28;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+a {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+header.identity {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+header.identity h1 {
+  font-size: 18pt;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.contact-line {
+  margin-top: 3px;
+  font-size: 8.4pt;
+  color: #333;
+}
+
+.contact-line span:not(:last-child)::after {
+  content: "  |  ";
+  color: #999;
+}
+
+section {
+  margin-top: 6px;
+}
+
+section h2 {
+  font-size: 10.2pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-bottom: 1.2px solid #1a1a1a;
+  padding-bottom: 2px;
+  margin-bottom: 5px;
+}
+
+.summary {
+  margin: 0;
+  text-align: justify;
+}
+
+.entry {
+  margin-bottom: 5px;
+}
+
+.entry .project-desc {
+  margin: 1px 0 0;
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.entry-head .title {
+  font-weight: 700;
+  font-size: 9.8pt;
+}
+
+.entry-head .period {
+  font-size: 8.6pt;
+  color: #444;
+  white-space: nowrap;
+}
+
+.entry .org {
+  font-style: italic;
+  font-size: 9.2pt;
+  color: #333;
+  margin-top: 0px;
+}
+
+.entry ul {
+  margin: 3px 0 0;
+  padding-left: 15px;
+}
+
+.entry ul li {
+  margin-bottom: 1px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 24px;
+}
+
+.skills-grid .group-label {
+  font-weight: 700;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 24px;
+}
+
+.tags {
+  color: #333;
+}
