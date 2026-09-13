@@ -1,8 +1,10 @@
 # Portfolio + Multi-Project Status — 2026-09-13
 
-> Written before a system restart (for Docker installation) that will close every open Claude
-> Code session. Read this first when picking work back up; each project folder also has its own
-> detailed `PROGRESS.md` for exactly where it left off.
+> Originally written ahead of a system restart (for Docker installation) that would have closed
+> every open Claude Code session. The restart didn't end up happening — Docker got installed
+> without one — so all sessions listed below stayed alive and this file is now just a running
+> status log rather than a pre-restart snapshot. Kept for reference; each project folder also has
+> its own detailed `PROGRESS.md` for exactly where it left off.
 
 ## Overview
 
