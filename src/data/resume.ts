@@ -8,7 +8,7 @@ export const profile = {
   location: "Thane, Maharashtra, India",
   email: "abhishekbobade269@gmail.com",
   phone: "+91 98925 51614",
-  github: "https://github.com/scroder",
+  github: "https://github.com/abhishekbobade269-source",
   linkedin: "https://www.linkedin.com/in/abhishek-bobade-09b3432b8/",
   summary:
     "Operations Executive with hands-on experience across office administration, resource management, and workflow automation. I build the internal tools — Google Apps Script systems, a Salesforce-integrated operations portal, PostgreSQL-backed tracking — that keep day-to-day operations running, and bring a CSE (AI & ML) background to how I approach process problems.",
@@ -95,9 +95,13 @@ export const projects: Project[] = [
     name: "WiFi Security Lab (802.11 Deauthentication)",
     tag: "Independent Project",
     status: "In Development",
-    stack: ["Python", "Scapy", "pytest"],
+    stack: ["Python", "Scapy", "pytest", "Next.js"],
     description:
-      "A hard-gated 802.11 deauthentication tool and its defensive counterpart (flood detector), built for a controlled lab environment only — every attack path runs through an explicit, expiring authorization allow-list plus an interactive confirmation step. Furthest along of these rebuilds: safety design, tests, docs, and CI are already in place.",
+      "A hard-gated 802.11 deauthentication tool and its defensive counterpart (flood detector), built for a controlled lab environment only — every attack path runs through an explicit, expiring authorization allow-list plus an interactive confirmation step. Furthest along of these rebuilds: safety design, tests, docs, and CI are already in place, plus a hardware-free interactive demo (the real detection algorithm ported to the browser) for anyone without lab equipment.",
+    links: {
+      repo: "https://github.com/abhishekbobade269-source/wifi-deauth-lab",
+      demo: "https://web-topaz-one-55.vercel.app",
+    },
   },
   {
     name: "Android Penetration Testing (Ethical)",
