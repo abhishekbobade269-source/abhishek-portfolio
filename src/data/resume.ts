@@ -90,6 +90,9 @@ export const projects: Project[] = [
     stack: ["Python", "Packet Capture", "Detection Rules", "ML"],
     description:
       "Started as coursework on monitoring live network traffic for anomalies; being rebuilt as a modular NIDS with a rules engine, an ML-based anomaly detector, and an alerting API/dashboard bridge.",
+    links: {
+      repo: "https://github.com/abhishekbobade269-source/network-intrusion-detection-system",
+    },
   },
   {
     name: "WiFi Security Lab (802.11 Deauthentication)",
