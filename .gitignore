@@ -40,8 +40,8 @@ yarn-error.log*
 # MCP server config references env vars, not secrets, but keep it local anyway
 .mcp.json
 
-# Claude Code local (machine-specific) settings — every project folder has one
-**/.claude/settings.local.json
+# Claude Code local (machine-specific) state — every project folder has one
+**/.claude/
 
 # typescript
 *.tsbuildinfo
