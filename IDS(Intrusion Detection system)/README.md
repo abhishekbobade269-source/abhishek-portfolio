@@ -141,6 +141,9 @@ bandit -c pyproject.toml -r src
 pytest                      # DB-backed tests auto-skip if Postgres isn't running
 ```
 
+Or just `make check` (see `Makefile` — mirrors CI in one command; `make train`,
+`make replay`, `make serve` wrap the common `nids` invocations too).
+
 CI (`.github/workflows/nids-ci.yml`, at the repo root since this lives in a
 monorepo) runs lint, type-check, security scan, the test suite against a
 real Postgres service container, and a Docker build on every push/PR that
