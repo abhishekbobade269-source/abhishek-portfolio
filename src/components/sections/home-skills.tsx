@@ -25,15 +25,15 @@ export function HomeSkills() {
     <section
       id="skills"
       ref={containerRef}
-      className="flex min-h-screen w-full flex-col gap-1.5 overflow-hidden px-3 pb-1.5 pt-20 md:h-screen md:gap-2 md:px-5 md:pb-2 md:pt-24"
+      className="flex min-h-screen w-full flex-col gap-1.5 overflow-hidden px-3 pb-1.5 pt-20 md:h-[calc(100vh-var(--footer-height,72px))] md:min-h-0 md:gap-2 md:px-5 md:pb-2 md:pt-[88px]"
     >
-      <div className="grid min-h-0 flex-1 grid-cols-1 gap-1.5 md:grid-cols-2 md:gap-2">
+      <div className="grid min-h-0 flex-1 grid-cols-1 gap-1.5 md:grid-cols-2 md:grid-rows-1 md:gap-2">
         <div className="flex flex-col gap-1.5 md:gap-2">
           <div
-            className="flex min-h-[180px] flex-[1.2] flex-col justify-between rounded-xl bg-stone-50 p-5 md:min-h-0 md:rounded-2xl md:p-7"
+            className="flex min-h-[180px] flex-1 flex-col justify-between rounded-xl bg-stone-50 p-5 md:min-h-0 md:rounded-2xl md:p-7"
             style={getAnimStyle(0)}
           >
-            <h2 className="text-[clamp(3rem,7vw,6.5rem)] font-bold leading-[0.95] text-black">
+            <h2 className="text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[0.95] text-black">
               Full-Stack
               <br />
               &amp; Automation
@@ -44,18 +44,18 @@ export function HomeSkills() {
           </div>
 
           <div
-            className="flex min-h-[160px] flex-1 flex-wrap gap-1.5 md:min-h-0 md:gap-2"
+            className="flex min-h-[160px] flex-[1.3] flex-wrap gap-1.5 md:min-h-0 md:gap-2"
             style={getAnimStyle(1)}
           >
             {skills.map((group, i) => (
               <div
                 key={group.group}
-                className={`min-w-[calc(50%-3px)] flex-1 rounded-xl p-3 md:min-w-[calc(33%-6px)] md:rounded-2xl md:p-4 ${
+                className={`min-w-[calc(50%-3px)] flex-1 rounded-xl p-3 md:min-w-0 md:rounded-2xl md:p-2.5 ${
                   i % 2 === 0 ? "bg-stone-50" : "bg-zinc-200"
                 }`}
               >
                 <h3 className="text-sm font-bold text-black md:text-base">{group.group}</h3>
-                <div className="mt-2 flex flex-wrap gap-1.5">
+                <div className="mt-2 flex flex-wrap gap-1.5 md:mt-1.5">
                   {group.items.map((item) => (
                     <span
                       key={item}

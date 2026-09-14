@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { MaskedCard } from "@/components/masked/masked-card";
 import { useImageWidth, useIsMobile, useMaskPositions, useStaggeredReveal } from "@/components/masked/hooks";
-import { profile, projects } from "@/data/resume";
+import { clientWork, profile, projects } from "@/data/resume";
 
 const SECTION2_IMAGE = "/backgrounds/projects-grid.svg";
 
@@ -19,6 +19,17 @@ const gallery = projects
     active: p.status === "Live",
     href: p.links?.caseStudy,
   }));
+
+// Client work and academic exercises don't fit the 4-item independent-rebuild
+// gallery above (different `tag`, no case-study page for either) but
+// shouldn't be invisible on the homepage either — surfaced here as small
+// badges in the otherwise-empty lower half of the "Shipped Products" card.
+const otherWork = [
+  ...clientWork.map((c) => ({ name: c.name, note: "Client Work", href: c.links?.demo })),
+  ...projects
+    .filter((p) => p.tag === "Academic Project")
+    .map((p) => ({ name: p.name.split(" (")[0], note: "Academic", href: undefined as string | undefined })),
+];
 
 export function HomeProjects() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -92,7 +103,7 @@ export function HomeProjects() {
           cardRef={(el) => {
             cardsRef.current[2] = el;
           }}
-          className="relative min-h-[160px] overflow-hidden rounded-xl md:min-h-0 md:rounded-2xl"
+          className="relative min-h-[230px] overflow-hidden rounded-xl md:min-h-0 md:rounded-2xl"
           style={getAnimStyle(2)}
         >
           <h3 className="absolute top-4 left-5 z-10 text-[clamp(3rem,7vw,6rem)] font-bold leading-[0.9] text-black md:top-6 md:left-7">
@@ -100,6 +111,29 @@ export function HomeProjects() {
             <br />
             Products
           </h3>
+
+          <div className="absolute bottom-4 right-5 z-10 flex flex-col items-end gap-1.5 md:bottom-6 md:right-7 md:gap-2">
+            {otherWork.map((item) =>
+              item.href ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-black/15 bg-white/80 px-3 py-1.5 text-[11px] font-semibold text-black backdrop-blur-md transition-transform hover:scale-105 md:text-xs"
+                >
+                  {item.name} · {item.note}
+                </a>
+              ) : (
+                <span
+                  key={item.name}
+                  className="rounded-full border border-black/10 bg-white/40 px-3 py-1.5 text-[11px] font-semibold text-black/70 backdrop-blur-md md:text-xs"
+                >
+                  {item.name} · {item.note}
+                </span>
+              )
+            )}
+          </div>
         </MaskedCard>
 
         <MaskedCard
