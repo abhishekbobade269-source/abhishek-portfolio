@@ -62,3 +62,6 @@ next-env.d.ts
 /IDS(Intrusion Detection system)/
 /Wifi deauthentication/
 /Inventory Management System/
+
+.vercel
+.env*

@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: `${profile.name} — ${profile.role}`,
   description: profile.summary,
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL("https://abhishek-portfolio-rose.vercel.app"),
   openGraph: {
     title: `${profile.name} — ${profile.role}`,
     description: profile.summary,
