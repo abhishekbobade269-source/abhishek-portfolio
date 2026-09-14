@@ -70,12 +70,13 @@ export const projects: Project[] = [
   {
     name: "Inventory & Asset Management System",
     tag: "Independent Project",
-    status: "In Development",
+    status: "Live",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind"],
     description:
       "A standalone inventory/asset-tracking system — ledgered stock movements, low-stock alerts, supplier records, and role-based access — modeled on the real operations tooling I build day-to-day at Upstep Academy.",
     links: {
       repo: "https://github.com/abhishekbobade269-source/office-inventory-management-system",
+      demo: "https://office-inventory-management-system-xi.vercel.app",
       caseStudy: "/work/inventory",
     },
   },

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Instrument_Serif } from "next/font/google";
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/icons/brand-icons";
 
 // Styled after a minimal, elegant enterprise-serif hero (white background,
@@ -82,10 +82,19 @@ export function InventoryHero() {
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <a
-            href="https://github.com/abhishekbobade269-source/office-inventory-management-system"
+            href="https://office-inventory-management-system-xi.vercel.app"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-black px-8 py-3.5 text-sm font-medium text-white transition-transform hover:scale-[1.03]"
+          >
+            <ExternalLink size={16} />
+            Live Demo
+          </a>
+          <a
+            href="https://github.com/abhishekbobade269-source/office-inventory-management-system"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-medium text-black/70 outline outline-1 outline-black/15 transition-colors hover:text-black hover:outline-black/30"
           >
             <GithubIcon width={16} height={16} />
             View on GitHub
@@ -98,8 +107,26 @@ export function InventoryHero() {
           </Link>
         </motion.div>
 
+        <motion.div
+          custom={0.5}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          className="mt-8 rounded-2xl bg-black/[0.03] px-6 py-4 text-xs text-black/50"
+        >
+          <p className="uppercase tracking-widest text-black/35">
+            Try it yourself — seeded demo accounts
+          </p>
+          <p className="mt-2 font-mono text-[13px] text-black/60">
+            admin@officestock.dev · manager@officestock.dev ·
+            staff@officestock.dev
+            <br />
+            password: Password123!
+          </p>
+        </motion.div>
+
         <motion.p
-          custom={0.55}
+          custom={0.65}
           initial="hidden"
           animate="visible"
           variants={fadeUp}
