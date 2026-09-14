@@ -1,17 +1,8 @@
 @import "tailwindcss";
 
-/* Enable class-based dark mode (".dark" on <html>) instead of relying only
-   on prefers-color-scheme, so the theme toggle can override the OS setting. */
-@custom-variant dark (&:where(.dark, .dark *));
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
 }
 
 @theme inline {
@@ -19,6 +10,12 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+/* Homepage-only font (see layout.tsx <head> for the stylesheet links). The
+   /work/* case studies each keep their own established typography. */
+.font-open-sauce {
+  font-family: "Open Sauce One", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 html {

@@ -1,31 +1,24 @@
-import { NavBar } from "@/components/nav-bar";
-import { Footer } from "@/components/footer";
-import { ScrollProgressBar } from "@/components/scroll-progress-bar";
-import { Hero } from "@/components/sections/hero";
-import { About } from "@/components/sections/about";
-import { Experience } from "@/components/sections/experience";
-import { Projects } from "@/components/sections/projects";
-import { ClientWork } from "@/components/sections/client-work";
-import { Skills } from "@/components/sections/skills";
-import { Education } from "@/components/sections/education";
-import { Contact } from "@/components/sections/contact";
+"use client";
+
+import { useState } from "react";
+import { SplashScreen } from "@/components/splash-screen";
+import { HomeNavbar } from "@/components/home-navbar";
+import { HomeHero } from "@/components/sections/home-hero";
+import { HomeProjects } from "@/components/sections/home-projects";
+import { HomeSkills } from "@/components/sections/home-skills";
+import { HomeFooter } from "@/components/home-footer";
 
 export default function Home() {
+  const [showSplash, setShowSplash] = useState(true);
+
   return (
-    <>
-      <ScrollProgressBar />
-      <NavBar />
-      <main className="flex-1">
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <ClientWork />
-        <Skills />
-        <Education />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+    <div className="bg-white font-open-sauce">
+      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
+      <HomeNavbar />
+      <HomeHero />
+      <HomeProjects />
+      <HomeSkills />
+      <HomeFooter />
+    </div>
   );
 }
