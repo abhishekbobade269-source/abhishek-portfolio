@@ -88,13 +88,13 @@ export function WifiHero() {
 
         <motion.div variants={item} className="mt-2 flex flex-wrap gap-3">
           <a
-            href="https://web-topaz-one-55.vercel.app"
+            href="https://landing-iota-black-60.vercel.app"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 bg-white px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] text-black transition-colors hover:bg-white/85"
           >
             <ExternalLink size={14} />
-            Live Demo
+            Live 3D Demo
           </a>
           <a
             href="https://github.com/abhishekbobade269-source/wifi-deauth-lab"
