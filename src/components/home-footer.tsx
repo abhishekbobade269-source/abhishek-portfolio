@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
+import Image from "next/image";
 import { profile } from "@/data/resume";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/brand-icons";
 
@@ -33,7 +34,15 @@ export function HomeFooter() {
       id="contact"
       className="flex flex-col items-center justify-between gap-3 px-4 py-6 text-xs font-medium text-black/50 sm:flex-row md:px-6"
     >
-      <p>
+      <p className="flex items-center gap-2">
+        <Image
+          src="/backgrounds/footer-monogram.png"
+          alt=""
+          width={22}
+          height={22}
+          unoptimized
+          className="h-[22px] w-[22px] opacity-70"
+        />
         © {new Date().getFullYear()} {profile.name}. {profile.location}.
       </p>
       <div className="flex items-center gap-4">

@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { useStaggeredReveal } from "@/components/masked/hooks";
-import { education, profile, skills } from "@/data/resume";
+import { additional, education, profile, skills } from "@/data/resume";
 
-const SKILLS_BG = "/backgrounds/skills-portrait.svg";
+const ABOUT_BG = "/backgrounds/about-network.png";
 
 const arrow = (
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="rotate-[-45deg]">
@@ -18,8 +19,77 @@ const arrow = (
   </svg>
 );
 
+// One-line, honest explanations per skill group — not a re-list of the
+// chips already shown on the left, just what each one actually means.
+const SKILL_NOTES: Record<string, string> = {
+  "Automation & Scripting": "Scripts + AI-assisted workflows that cut manual busywork",
+  "Web Development": "Full-stack builds, frontend through PostgreSQL",
+  Operations: "Inventory, resourcing, and day-to-day data management",
+  Platforms: "Salesforce integration for operational tooling",
+  Analytical: "Python & SQL-driven research behind every process fix",
+};
+
+const HOBBY_NOTES: Record<string, string> = {
+  Hiking: "Weekend trail resets",
+  Powerlifting: "District-level competitor",
+  "Mountain Biking": "Off-road, off-schedule",
+};
+
+type FlowRow = { title: string; note: string };
+
+// A simple top-to-bottom rail (same visual language as the case-studies
+// scroll line) instead of the earlier radial hub-and-branch diagram — that
+// version crowded 6 labels together with crossing lines and, worse, on one
+// render dropped 2 of the 6 labels off-screen entirely. A vertical list is
+// impossible to overlap by construction and every item gets a real,
+// individually-readable explanation.
+function SkillsFlow({ rows }: { rows: FlowRow[] }) {
+  return (
+    <div className="relative flex flex-col gap-5 md:gap-7">
+      <div className="absolute top-1 bottom-1 left-[6px] w-0.5 bg-black/10" />
+      <motion.div
+        className="absolute top-1 left-[6px] h-full w-0.5 origin-top bg-[#34d399]"
+        initial={{ scaleY: 0 }}
+        whileInView={{ scaleY: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      />
+      <motion.div
+        className="absolute left-[6px] h-3.5 w-3.5 -translate-x-1/2 rounded-full bg-[#34d399]"
+        style={{ boxShadow: "0 0 14px 4px rgba(52,211,153,0.55)" }}
+        animate={{ top: ["0%", "100%"] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+      />
+
+      {rows.map((row, i) => (
+        <motion.div
+          key={row.title}
+          initial={{ opacity: 0, x: -10 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.08 * i, ease: [0.16, 1, 0.3, 1] }}
+          className="relative pl-8"
+        >
+          <span className="absolute top-1.5 left-[6px] h-3.5 w-3.5 -translate-x-1/2 rounded-full border-2 border-[#34d399] bg-white" />
+          <h4 className="text-lg font-bold text-black md:text-2xl">{row.title}</h4>
+          <p className="mt-1 text-sm leading-snug text-black/55 md:text-base">{row.note}</p>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
 export function HomeSkills() {
   const { containerRef, getAnimStyle } = useStaggeredReveal(4);
+
+  const skillRows: FlowRow[] = skills.map((group) => ({
+    title: group.group,
+    note: SKILL_NOTES[group.group] ?? group.items.join(", "),
+  }));
+  const hobbyRows: FlowRow[] = additional.hobbies.map((hobby) => ({
+    title: hobby,
+    note: HOBBY_NOTES[hobby] ?? "",
+  }));
 
   return (
     <section
@@ -27,24 +97,10 @@ export function HomeSkills() {
       ref={containerRef}
       className="flex min-h-screen w-full flex-col gap-1.5 overflow-hidden px-3 pb-1.5 pt-20 md:h-[calc(100vh-var(--footer-height,72px))] md:min-h-0 md:gap-2 md:px-5 md:pb-2 md:pt-[88px]"
     >
-      <div className="grid min-h-0 flex-1 grid-cols-1 gap-1.5 md:grid-cols-2 md:grid-rows-1 md:gap-2">
+      <div className="grid min-h-0 flex-1 grid-cols-1 gap-1.5 md:grid-cols-[1fr_1.6fr] md:grid-rows-1 md:gap-2">
         <div className="flex flex-col gap-1.5 md:gap-2">
           <div
-            className="flex min-h-[180px] flex-1 flex-col justify-between rounded-xl bg-stone-50 p-5 md:min-h-0 md:rounded-2xl md:p-7"
-            style={getAnimStyle(0)}
-          >
-            <h2 className="text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[0.95] text-black">
-              Full-Stack
-              <br />
-              &amp; Automation
-            </h2>
-            <p className="text-xs font-semibold text-black md:text-sm">
-              Skills across the stack
-            </p>
-          </div>
-
-          <div
-            className="flex min-h-[160px] flex-[1.3] flex-wrap gap-1.5 md:min-h-0 md:gap-2"
+            className="flex min-h-[220px] flex-1 flex-wrap gap-1.5 md:min-h-0 md:gap-2"
             style={getAnimStyle(1)}
           >
             {skills.map((group, i) => (
@@ -95,18 +151,26 @@ export function HomeSkills() {
         </div>
 
         <div
-          className="relative min-h-[350px] overflow-hidden rounded-xl md:min-h-0 md:rounded-2xl"
+          className="relative flex min-h-[500px] flex-col overflow-hidden rounded-xl bg-gradient-to-br from-stone-50 to-white p-5 md:min-h-0 md:rounded-2xl md:p-9"
           style={getAnimStyle(3)}
         >
-          <Image
-            src={SKILLS_BG}
-            alt="Abstract network of connected nodes"
-            fill
-            unoptimized
-            className="object-cover"
-          />
+          <div className="grid flex-1 grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10">
+            <div>
+              <h3 className="mb-6 text-3xl font-bold leading-none text-black md:mb-9 md:text-5xl">Skills</h3>
+              <SkillsFlow rows={skillRows} />
+            </div>
+            <div>
+              <h3 className="mb-6 text-3xl font-bold leading-none text-black md:mb-9 md:text-5xl">
+                Beyond the
+                <br />
+                Stack
+              </h3>
+              <SkillsFlow rows={hobbyRows} />
+              <p className="mt-5 pl-8 text-sm text-black/40 md:text-base">🏆 {additional.achievement}</p>
+            </div>
+          </div>
 
-          <div className="absolute bottom-3 left-3 right-3 flex gap-1.5 md:bottom-5 md:left-5 md:right-5 md:gap-2">
+          <div className="relative z-10 mt-6 flex gap-1.5 md:mt-8 md:gap-2">
             <a
               href="/resume/Abhishek_Bobade_Resume.pdf"
               target="_blank"
@@ -127,16 +191,25 @@ export function HomeSkills() {
               href={profile.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="flex h-36 flex-1 flex-col justify-between rounded-xl bg-white/20 p-3 backdrop-blur-xl md:h-52 md:rounded-2xl md:p-5"
+              className="relative flex h-36 flex-1 flex-col justify-between overflow-hidden rounded-xl p-3 md:h-52 md:rounded-2xl md:p-5"
             >
-              <h4 className="text-lg font-bold leading-5 text-white md:text-2xl md:leading-7">
+              <Image
+                src={ABOUT_BG}
+                alt="Network mesh silhouette of shoulders and chest"
+                fill
+                unoptimized
+                className="object-cover object-[50%_35%]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/15 to-black/40" />
+
+              <h4 className="relative z-10 text-lg font-bold leading-5 text-white md:text-2xl md:leading-7">
                 Operations
                 <br />
                 Executive at
                 <br />
                 Upstep Academy
               </h4>
-              <span className="flex h-9 w-9 self-end items-center justify-center rounded-full border border-white text-white md:h-12 md:w-12">
+              <span className="relative z-10 flex h-9 w-9 self-end items-center justify-center rounded-full border border-white text-white md:h-12 md:w-12">
                 {arrow}
               </span>
             </a>

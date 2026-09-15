@@ -23,15 +23,15 @@ export function HomeNavbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-white/80 px-4 py-2 backdrop-blur-md md:px-6 md:py-3">
-        <a href="#top" className="flex flex-col">
-          <span className="text-xl font-extrabold uppercase leading-none tracking-tight md:text-2xl">
-            Abhishek
+        <a href="#top" className="flex flex-col gap-1">
+          <span className="flex items-baseline gap-1.5 text-lg font-extrabold uppercase leading-none tracking-tight md:text-2xl">
+            Abhishek Bobade
           </span>
-          <span className="-mt-1.5 text-xl font-extrabold uppercase leading-none tracking-tight md:-mt-2 md:text-2xl">
-            Bobade
-          </span>
-          <span className="mt-1.5 text-[8px] font-medium leading-none md:mt-2 md:text-[9px]">
-            operations &amp; automation
+          <span className="flex items-center gap-1.5">
+            <span className="h-1 w-1 rounded-full bg-[#34d399]" />
+            <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-neutral-500 md:text-[10px]">
+              Operations &amp; Automation
+            </span>
           </span>
         </a>
 

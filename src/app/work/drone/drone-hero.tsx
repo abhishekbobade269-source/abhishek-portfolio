@@ -101,16 +101,28 @@ export function DroneHero() {
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              className="flex justify-center"
+              className="flex flex-col items-center gap-3"
             >
-              <Link
-                href="/#projects"
+              <a
+                href="https://droneops-ai.vercel.app"
+                target="_blank"
+                rel="noreferrer"
                 className={`${styles.cut} group flex w-full max-w-[280px] items-center justify-center gap-2 py-3.5 text-black transition-colors hover:bg-white/90`}
                 style={{ backgroundColor: `rgb(${ACCENT})` }}
               >
-                <span className="text-sm font-medium">Back to Portfolio</span>
+                <span className="text-sm font-medium">Enter Console</span>
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              </a>
+              <Link
+                href="/#projects"
+                className="text-xs text-white/50 underline-offset-4 transition-colors hover:text-white/80 hover:underline"
+              >
+                Back to Portfolio
               </Link>
+              <p className="max-w-[280px] text-center text-[11px] leading-relaxed text-white/40">
+                Note: the live demo runs an earlier build — newly registered drones may not appear in
+                the Fleet list/Radar right away; a fix is in and awaiting redeploy.
+              </p>
             </motion.div>
 
             <motion.div

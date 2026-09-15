@@ -88,11 +88,19 @@ export function NidsHero() {
 
         <motion.div variants={item} className="mt-4 flex flex-wrap items-center gap-3">
           <a
-            href="https://github.com/abhishekbobade269-source/network-intrusion-detection-system"
+            href="https://nids-console.vercel.app"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-medium uppercase tracking-widest text-black transition-transform hover:scale-[1.02] active:scale-[0.98]"
             style={{ backgroundColor: `rgb(${ACCENT})` }}
+          >
+            Enter the Console
+          </a>
+          <a
+            href="https://github.com/abhishekbobade269-source/network-intrusion-detection-system"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-medium uppercase tracking-widest text-white/80 outline outline-1 outline-white/25 transition-colors hover:text-white hover:outline-white/50"
           >
             <GithubIcon width={16} height={16} />
             View on GitHub
@@ -106,7 +114,9 @@ export function NidsHero() {
         </motion.div>
 
         <motion.p variants={item} className="mt-2 text-xs font-light text-white/40">
-          Built solo, end to end — capture → detection → alerting → dashboard.
+          Built solo, end to end — capture → detection → alerting → dashboard. The live console runs
+          in demo mode — a recorded capture replayed against the real detection engine, not a live
+          production backend.
         </motion.p>
       </motion.div>
     </main>

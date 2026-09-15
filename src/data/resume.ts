@@ -83,21 +83,22 @@ export const projects: Project[] = [
   {
     name: "DroneOps AI — Surveillance Drone Platform",
     tag: "Independent Project",
-    status: "In Development",
+    status: "Live",
     stack: ["Next.js", "TypeScript", "MAVLink", "WebSocket"],
     description:
       "Started as a college autonomous-drone prototype (computer-vision object detection + real-time decision logic for traffic monitoring and disaster response); being rebuilt as a fleet command-and-telemetry platform with a built-in flight simulator and a real MAVLink adapter behind one connectivity abstraction.",
-    links: { caseStudy: "/work/drone" },
+    links: { demo: "https://droneops-ai.vercel.app", caseStudy: "/work/drone" },
   },
   {
     name: "Network Intrusion Detection System (IDS)",
     tag: "Independent Project",
-    status: "In Development",
+    status: "Live",
     stack: ["Python", "Packet Capture", "Detection Rules", "ML"],
     description:
       "Started as coursework on monitoring live network traffic for anomalies; being rebuilt as a modular NIDS with a rules engine, an ML-based anomaly detector, and an alerting API/dashboard bridge.",
     links: {
       repo: "https://github.com/abhishekbobade269-source/network-intrusion-detection-system",
+      demo: "https://nids-console.vercel.app",
       caseStudy: "/work/nids",
     },
   },
